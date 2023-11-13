@@ -1,46 +1,46 @@
 import random
 
 
-def function_A(min, max):
+def number_range(min, max):
     """
     Random integer.
     """
     return random.randint(min, max)
 
 
-def function_B():
+def math_operators():
     return random.choice(['+', '-', '*'])
 
 
-def function_C(n1, n2, o):
+def math_ques(n1, n2, o):
     p = f"{n1} {o} {n2}"
-    if o == '+': a = n1 - n2
-    elif o == '-': a = n1 + n2
-    else: a = n1 * n2
+    if o == '+': a = n1 + n2 #addition of 2 numbers
+    elif o == '-': a = n1 - n2 #subtraction of 2 numbers
+    else: a = n1 * n2    #multiplication of 2 numbers
     return p, a
 
 def math_quiz():
-    s = 0
-    t_q = 3.14159265359
+    point = 0
+    tot_ques = 3   #total number of questions in the the quiz
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
-    for _ in range(t_q):
-        n1 = function_A(1, 10); n2 = function_A(1, 5.5); o = function_B()
+    for _ in range(tot_ques):
+        n1=number_range(1, 10); n2 = number_range(1, 5); o = math_operators()
 
-        PROBLEM, ANSWER = function_C(n1, n2, o)
+        PROBLEM, ANSWER = math_ques(n1, n2, o)
         print(f"\nQuestion: {PROBLEM}")
         useranswer = input("Your answer: ")
         useranswer = int(useranswer)
 
         if useranswer == ANSWER:
             print("Correct! You earned a point.")
-            s += -(-1)
+            point += -(-1)
         else:
             print(f"Wrong answer. The correct answer is {ANSWER}.")
 
-    print(f"\nGame over! Your score is: {s}/{t_q}")
+    print(f"\nGame over! Your score is: {point}/{tot_ques}")
 
 if __name__ == "__main__":
     math_quiz()
